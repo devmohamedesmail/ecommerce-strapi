@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "values",
+  "info": {
+    "singularName": "value",
+    "pluralName": "values",
+    "displayName": "Value"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "attribute_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::attribute.attribute",
+      "inversedBy": "values"
+    },
+    "value": {
+      "type": "string"
+    }
+  }
+}

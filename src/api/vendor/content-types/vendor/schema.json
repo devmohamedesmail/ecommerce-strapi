@@ -1,39 +1,35 @@
 {
   "kind": "collectionType",
-  "collectionName": "categories",
+  "collectionName": "vendors",
   "info": {
-    "singularName": "category",
-    "pluralName": "categories",
-    "displayName": "Category",
-    "description": ""
+    "singularName": "vendor",
+    "pluralName": "vendors",
+    "displayName": "Vendor"
   },
   "options": {
     "draftAndPublish": true
   },
   "attributes": {
-    "title": {
+    "name": {
       "type": "string"
     },
     "image": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ]
+      ],
+      "type": "media",
+      "multiple": false
     },
     "isActive": {
-      "type": "boolean",
-      "default": true
+      "type": "boolean"
     },
     "products": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::product.product",
-      "mappedBy": "category"
+      "target": "api::product.product"
     }
   }
 }

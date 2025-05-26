@@ -57,6 +57,18 @@
     },
     "short_description": {
       "type": "text"
+    },
+    "attributes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::attribute.attribute",
+      "mappedBy": "product_id"
+    },
+    "variants": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::variant.variant",
+      "mappedBy": "product_id"
     }
   }
 }
