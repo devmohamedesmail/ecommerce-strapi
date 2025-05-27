@@ -35,6 +35,12 @@
     },
     "Phone": {
       "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "password": {
+      "type": "password"
     }
   }
 }
