@@ -4,7 +4,8 @@
   "info": {
     "singularName": "vendor",
     "pluralName": "vendors",
-    "displayName": "Vendor"
+    "displayName": "Vendor",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -14,14 +15,15 @@
       "type": "string"
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "isActive": {
       "type": "boolean"
@@ -30,6 +32,9 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::product.product"
+    },
+    "Phone": {
+      "type": "string"
     }
   }
 }

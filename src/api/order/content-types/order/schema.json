@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "singularName": "order",
+    "pluralName": "orders",
+    "displayName": "Order"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "product_id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "Phone": {
+      "type": "string"
+    },
+    "Address": {
+      "type": "string"
+    },
+    "order": {
+      "type": "json"
+    }
+  }
+}

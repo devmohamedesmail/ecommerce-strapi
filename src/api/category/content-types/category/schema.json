@@ -33,7 +33,7 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::product.product",
-      "mappedBy": "category"
+      "mappedBy": "category_id"
     }
   }
 }
