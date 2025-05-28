@@ -4,8 +4,7 @@
   "info": {
     "singularName": "category",
     "pluralName": "categories",
-    "displayName": "Category",
-    "description": ""
+    "displayName": "Category"
   },
   "options": {
     "draftAndPublish": true
@@ -14,26 +13,27 @@
     "title": {
       "type": "string"
     },
+    "description": {
+      "type": "text"
+    },
     "image": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ]
+      ],
+      "type": "media",
+      "multiple": false
     },
     "isActive": {
-      "type": "boolean",
-      "default": true
+      "type": "boolean"
     },
-    "products": {
+    "product": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::product.product",
-      "mappedBy": "category_id"
+      "mappedBy": "category"
     }
   }
 }

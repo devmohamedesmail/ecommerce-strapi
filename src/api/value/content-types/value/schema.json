@@ -4,20 +4,32 @@
   "info": {
     "singularName": "value",
     "pluralName": "values",
-    "displayName": "Value"
+    "displayName": "Value",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "attributes": {
-    "attribute_id": {
+    "value": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "attribute": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::attribute.attribute",
       "inversedBy": "values"
-    },
-    "value": {
-      "type": "string"
     }
   }
 }

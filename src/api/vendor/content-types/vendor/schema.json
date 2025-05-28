@@ -11,7 +11,7 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "name": {
+    "vendor_name": {
       "type": "string"
     },
     "image": {
@@ -26,14 +26,10 @@
       ]
     },
     "isActive": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": true
     },
-    "products": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::product.product"
-    },
-    "Phone": {
+    "phone": {
       "type": "string"
     },
     "email": {
@@ -41,6 +37,12 @@
     },
     "password": {
       "type": "password"
+    },
+    "product_id": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product",
+      "mappedBy": "vendor"
     }
   }
 }

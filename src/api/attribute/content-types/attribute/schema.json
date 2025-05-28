@@ -4,7 +4,8 @@
   "info": {
     "singularName": "attribute",
     "pluralName": "attributes",
-    "displayName": "Attribute"
+    "displayName": "Attribute",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -13,23 +14,16 @@
     "name": {
       "type": "string"
     },
-    "product_id": {
+    "product": {
       "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::product.product",
-      "inversedBy": "attributes"
+      "relation": "oneToOne",
+      "target": "api::product.product"
     },
     "values": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::value.value",
-      "mappedBy": "attribute_id"
-    },
-    "variant_id": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::variant.variant",
-      "mappedBy": "attribute_id"
+      "mappedBy": "attribute"
     }
   }
 }

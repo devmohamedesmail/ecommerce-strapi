@@ -4,24 +4,13 @@
   "info": {
     "singularName": "variant",
     "pluralName": "variants",
-    "displayName": "Variant"
+    "displayName": "variant",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "attributes": {
-    "product_id": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::product.product",
-      "inversedBy": "variants"
-    },
-    "attribute_id": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::attribute.attribute",
-      "inversedBy": "variant_id"
-    },
     "title": {
       "type": "string"
     },
@@ -32,17 +21,15 @@
       "type": "decimal"
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
-    },
-    "isAvailable": {
-      "type": "boolean"
+      ]
     }
   }
 }

@@ -4,34 +4,20 @@
   "info": {
     "singularName": "product",
     "pluralName": "products",
-    "displayName": "product",
+    "displayName": "Product",
     "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "attributes": {
-    "Title": {
+    "title": {
       "type": "string"
     },
-    "logn_description": {
-      "type": "blocks"
+    "description": {
+      "type": "text"
     },
-    "stock": {
-      "type": "integer"
-    },
-    "image": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
-    "gallery": {
+    "images": {
       "type": "media",
       "multiple": true,
       "required": false,
@@ -45,33 +31,35 @@
     "price": {
       "type": "decimal"
     },
-    "isActive": {
-      "type": "boolean",
-      "default": true
+    "sale": {
+      "type": "decimal"
     },
-    "category_id": {
+    "stock": {
+      "type": "integer"
+    },
+    "isActive": {
+      "type": "boolean"
+    },
+    "isFeatured": {
+      "type": "boolean",
+      "default": false
+    },
+    "category": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::category.category",
-      "inversedBy": "products"
+      "inversedBy": "product"
     },
-    "short_description": {
-      "type": "text"
+    "vendor": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::vendor.vendor",
+      "inversedBy": "product_id"
     },
     "attributes": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::attribute.attribute",
-      "mappedBy": "product_id"
-    },
-    "variants": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::variant.variant",
-      "mappedBy": "product_id"
-    },
-    "vendor_id": {
-      "type": "integer"
+      "target": "api::attribute.attribute"
     }
   }
 }
