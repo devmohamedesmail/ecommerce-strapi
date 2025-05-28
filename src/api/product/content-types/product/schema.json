@@ -50,16 +50,16 @@
       "target": "api::category.category",
       "inversedBy": "product"
     },
-    "vendor": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::vendor.vendor",
-      "inversedBy": "product_id"
-    },
     "attributes": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::attribute.attribute"
+    },
+    "vendor": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::vendor.vendor",
+      "inversedBy": "products"
     }
   }
 }
