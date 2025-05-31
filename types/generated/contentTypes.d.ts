@@ -395,12 +395,12 @@ export interface ApiAttributeAttribute extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
-    product: Schema.Attribute.Relation<'oneToOne', 'api::product.product'>;
+    products: Schema.Attribute.Relation<'manyToMany', 'api::product.product'>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    values: Schema.Attribute.Relation<'oneToMany', 'api::value.value'>;
+    values: Schema.Attribute.Relation<'manyToMany', 'api::value.value'>;
   };
 }
 
@@ -507,7 +507,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
   };
   attributes: {
     attributes: Schema.Attribute.Relation<
-      'oneToMany',
+      'manyToMany',
       'api::attribute.attribute'
     >;
     category: Schema.Attribute.Relation<'manyToOne', 'api::category.category'>;
@@ -551,8 +551,8 @@ export interface ApiValueValue extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    attribute: Schema.Attribute.Relation<
-      'manyToOne',
+    attributes: Schema.Attribute.Relation<
+      'manyToMany',
       'api::attribute.attribute'
     >;
     createdAt: Schema.Attribute.DateTime;

@@ -10,6 +10,7 @@
   "options": {
     "draftAndPublish": true
   },
+  "pluginOptions": {},
   "attributes": {
     "title": {
       "type": "string"
@@ -52,8 +53,9 @@
     },
     "attributes": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::attribute.attribute"
+      "relation": "manyToMany",
+      "target": "api::attribute.attribute",
+      "mappedBy": "products"
     },
     "vendor": {
       "type": "relation",
