@@ -1,0 +1,4 @@
+// remove "@strapi-community/cloudinary-media-library
+// @strapi/provider-upload-cloudinary
+//  "@strapi/strapi": "5.13.1",
+  'strapi::security',
