@@ -62,6 +62,10 @@
       "relation": "manyToOne",
       "target": "api::vendor.vendor",
       "inversedBy": "products"
+    },
+    "isSimple": {
+      "type": "boolean",
+      "default": true
     }
   }
 }

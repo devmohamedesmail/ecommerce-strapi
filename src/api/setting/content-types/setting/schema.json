@@ -29,6 +29,15 @@
     },
     "token": {
       "type": "text"
+    },
+    "base_url": {
+      "type": "text"
+    },
+    "currency_ar": {
+      "type": "string"
+    },
+    "currency_en": {
+      "type": "string"
     }
   }
 }
