@@ -28,6 +28,10 @@
     },
     "payment_method": {
       "type": "string"
+    },
+    "order_status": {
+      "type": "string",
+      "default": "pending"
     }
   }
 }
