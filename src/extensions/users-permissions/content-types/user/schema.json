@@ -76,6 +76,18 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::order.order"
+    },
+    "vendor": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::vendor.vendor",
+      "inversedBy": "user"
+    },
+    "customer": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::customer.customer",
+      "mappedBy": "user"
     }
   }
 }
