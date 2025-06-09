@@ -29,10 +29,6 @@
     "payment_method": {
       "type": "string"
     },
-    "order_status": {
-      "type": "string",
-      "default": "pending"
-    },
     "vendor_id": {
       "type": "integer"
     },
@@ -41,6 +37,17 @@
       "relation": "manyToOne",
       "target": "api::vendor.vendor",
       "inversedBy": "orders"
+    },
+    "order_status": {
+      "type": "enumeration",
+      "default": "pending",
+      "enum": [
+        "pending",
+        "completed",
+        "processing",
+        "cancelled",
+        "returned"
+      ]
     }
   }
 }
