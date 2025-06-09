@@ -70,6 +70,9 @@
     "isSimple": {
       "type": "boolean",
       "default": true
+    },
+    "vendor_id": {
+      "type": "integer"
     }
   }
 }

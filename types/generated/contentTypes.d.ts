@@ -602,6 +602,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     vendor: Schema.Attribute.Relation<'manyToOne', 'api::vendor.vendor'>;
+    vendor_id: Schema.Attribute.Integer;
   };
 }
 
