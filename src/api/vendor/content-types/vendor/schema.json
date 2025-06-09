@@ -65,6 +65,12 @@
     "isVarified": {
       "type": "boolean",
       "default": false
+    },
+    "orders": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::order.order",
+      "mappedBy": "vendor"
     }
   }
 }

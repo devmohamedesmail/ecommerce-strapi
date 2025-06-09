@@ -32,6 +32,15 @@
     "order_status": {
       "type": "string",
       "default": "pending"
+    },
+    "vendor_id": {
+      "type": "integer"
+    },
+    "vendor": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::vendor.vendor",
+      "inversedBy": "orders"
     }
   }
 }
