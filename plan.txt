@@ -1,6 +1,0 @@
-=> 9/6/2015
-    * update the Strapi
-    * create vendor_id in product table
-    * update order table
-    * 
-    

@@ -7,7 +7,9 @@ module.exports = [
       contentSecurityPolicy: {
         useDefaults: true,
         directives: {
-          'connect-src': ["'self'", 'https:'],
+          
+        
+          'connect-src': ["'self'", 'https:','https://proxy-event.ckeditor.com'],
           'img-src': [
             "'self'",
             'data:',
@@ -22,6 +24,7 @@ module.exports = [
             'https://media-library.cloudinary.com',
             'https://upload-widget.cloudinary.com',
             'https://console.cloudinary.com',
+            'https://cdn.ckeditor.com'
           ],
           'media-src': ["'self'", 'data:', 'blob:', 'https://console.cloudinary.com'],
           'frame-src': [
