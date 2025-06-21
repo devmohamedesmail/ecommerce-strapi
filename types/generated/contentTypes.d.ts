@@ -562,6 +562,37 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiPaymentOptionPaymentOption
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'payment_options';
+  info: {
+    displayName: 'PaymentOption';
+    pluralName: 'payment-options';
+    singularName: 'payment-option';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::payment-option.payment-option'
+    > &
+      Schema.Attribute.Private;
+    payment_status: Schema.Attribute.Boolean;
+    publishedAt: Schema.Attribute.DateTime;
+    title_ar: Schema.Attribute.String & Schema.Attribute.Required;
+    title_en: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiProductProduct extends Struct.CollectionTypeSchema {
   collectionName: 'products';
   info: {
@@ -1266,6 +1297,7 @@ declare module '@strapi/strapi' {
       'api::customer.customer': ApiCustomerCustomer;
       'api::order.order': ApiOrderOrder;
       'api::page.page': ApiPagePage;
+      'api::payment-option.payment-option': ApiPaymentOptionPaymentOption;
       'api::product.product': ApiProductProduct;
       'api::review.review': ApiReviewReview;
       'api::setting.setting': ApiSettingSetting;
