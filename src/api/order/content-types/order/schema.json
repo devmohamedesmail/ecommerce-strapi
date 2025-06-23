@@ -48,6 +48,9 @@
         "cancelled",
         "returned"
       ]
+    },
+    "full_address": {
+      "type": "json"
     }
   }
 }
