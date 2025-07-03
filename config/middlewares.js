@@ -1,15 +1,15 @@
 module.exports = [
   'strapi::logger',
   'strapi::errors',
- {
+  {
     name: 'strapi::security',
     config: {
       contentSecurityPolicy: {
         useDefaults: true,
         directives: {
-          
-        
-          'connect-src': ["'self'", 'https:','https://proxy-event.ckeditor.com'],
+
+
+          'connect-src': ["'self'", 'https:', 'https://proxy-event.ckeditor.com'],
           'img-src': [
             "'self'",
             'data:',
@@ -40,12 +40,19 @@ module.exports = [
   },
 
   // 'strapi::cors',
-   {
+  {
     name: 'strapi::cors',
     config: {
-      origin: ['*'],
+      origin: ['https://vendora-website-store.vercel.app'],
       methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
-      headers: '*',
+      headers: [
+        'Content-Type',
+        'Authorization',
+        'Origin',
+        'Accept',
+        'X-Requested-With',
+      ],
+      keepHeaderOnError: true,
     },
   },
   'strapi::poweredBy',
