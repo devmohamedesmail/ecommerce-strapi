@@ -66,12 +66,6 @@
       "inversedBy": "users",
       "configurable": false
     },
-    "carts": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::cart.cart",
-      "mappedBy": "user"
-    },
     "orders": {
       "type": "relation",
       "relation": "oneToMany",
@@ -88,6 +82,15 @@
       "relation": "oneToOne",
       "target": "api::customer.customer",
       "mappedBy": "user"
+    },
+    "type": {
+      "type": "enumeration",
+      "default": "user",
+      "enum": [
+        "user",
+        "vendor",
+        "admin"
+      ]
     }
   }
 }

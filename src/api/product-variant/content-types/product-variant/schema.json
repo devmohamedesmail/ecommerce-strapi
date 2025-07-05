@@ -1,24 +1,25 @@
 {
   "kind": "collectionType",
-  "collectionName": "values",
+  "collectionName": "product_variants",
   "info": {
-    "singularName": "value",
-    "pluralName": "values",
-    "displayName": "attribute_values",
-    "description": ""
+    "singularName": "product-variant",
+    "pluralName": "product-variants",
+    "displayName": "product_variant"
   },
   "options": {
     "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
-    "value": {
-      "type": "string"
+    "price": {
+      "type": "decimal"
+    },
+    "stock": {
+      "type": "integer"
     },
     "image": {
       "type": "media",
       "multiple": false,
-      "required": false,
       "allowedTypes": [
         "images",
         "files",
@@ -26,17 +27,17 @@
         "audios"
       ]
     },
-    "attribute": {
+    "product": {
       "type": "relation",
       "relation": "manyToOne",
-      "target": "api::attribute.attribute",
-      "inversedBy": "values"
+      "target": "api::product.product",
+      "inversedBy": "product_variants"
     },
-    "product_variants": {
+    "attribute_values": {
       "type": "relation",
       "relation": "manyToMany",
-      "target": "api::product-variant.product-variant",
-      "mappedBy": "attribute_values"
+      "target": "api::value.value",
+      "inversedBy": "product_variants"
     }
   }
 }

@@ -376,7 +376,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiAddressAddress extends Struct.CollectionTypeSchema {
   collectionName: 'addresses';
   info: {
-    displayName: 'Address';
+    displayName: 'address';
     pluralName: 'addresses';
     singularName: 'address';
   };
@@ -409,7 +409,7 @@ export interface ApiAttributeAttribute extends Struct.CollectionTypeSchema {
   collectionName: 'attributes';
   info: {
     description: '';
-    displayName: 'Attribute';
+    displayName: 'attribute';
     pluralName: 'attributes';
     singularName: 'attribute';
   };
@@ -432,44 +432,14 @@ export interface ApiAttributeAttribute extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    values: Schema.Attribute.Relation<'manyToMany', 'api::value.value'>;
-  };
-}
-
-export interface ApiCartCart extends Struct.CollectionTypeSchema {
-  collectionName: 'carts';
-  info: {
-    displayName: 'Cart';
-    pluralName: 'carts';
-    singularName: 'cart';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    isApproved: Schema.Attribute.Boolean;
-    items: Schema.Attribute.JSON;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::cart.cart'> &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    user: Schema.Attribute.Relation<
-      'manyToOne',
-      'plugin::users-permissions.user'
-    >;
+    values: Schema.Attribute.Relation<'oneToMany', 'api::value.value'>;
   };
 }
 
 export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   collectionName: 'categories';
   info: {
-    displayName: 'Category';
+    displayName: 'category';
     pluralName: 'categories';
     singularName: 'category';
   };
@@ -501,7 +471,7 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
 export interface ApiCustomerCustomer extends Struct.CollectionTypeSchema {
   collectionName: 'customers';
   info: {
-    displayName: 'Customer';
+    displayName: 'customer';
     pluralName: 'customers';
     singularName: 'customer';
   };
@@ -535,7 +505,7 @@ export interface ApiCustomerCustomer extends Struct.CollectionTypeSchema {
 export interface ApiOrderOrder extends Struct.CollectionTypeSchema {
   collectionName: 'orders';
   info: {
-    displayName: 'Order';
+    displayName: 'order';
     pluralName: 'orders';
     singularName: 'order';
   };
@@ -569,37 +539,11 @@ export interface ApiOrderOrder extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiPagePage extends Struct.CollectionTypeSchema {
-  collectionName: 'pages';
-  info: {
-    displayName: 'Page';
-    pluralName: 'pages';
-    singularName: 'page';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    content: Schema.Attribute.Blocks;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::page.page'> &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiPaymentOptionPaymentOption
   extends Struct.CollectionTypeSchema {
   collectionName: 'payment_options';
   info: {
-    displayName: 'PaymentOption';
+    displayName: 'payment_option';
     pluralName: 'payment-options';
     singularName: 'payment-option';
   };
@@ -629,11 +573,78 @@ export interface ApiPaymentOptionPaymentOption
   };
 }
 
+export interface ApiProductAttributeValueProductAttributeValue
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'product_attribute_values';
+  info: {
+    displayName: 'product_attribute_value';
+    pluralName: 'product-attribute-values';
+    singularName: 'product-attribute-value';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    attribute_id: Schema.Attribute.Integer;
+    attribute_value_id: Schema.Attribute.Integer;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-attribute-value.product-attribute-value'
+    > &
+      Schema.Attribute.Private;
+    product_id: Schema.Attribute.Integer;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiProductVariantProductVariant
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'product_variants';
+  info: {
+    displayName: 'product_variant';
+    pluralName: 'product-variants';
+    singularName: 'product-variant';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    attribute_values: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::value.value'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-variant.product-variant'
+    > &
+      Schema.Attribute.Private;
+    price: Schema.Attribute.Decimal;
+    product: Schema.Attribute.Relation<'manyToOne', 'api::product.product'>;
+    publishedAt: Schema.Attribute.DateTime;
+    stock: Schema.Attribute.Integer;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiProductProduct extends Struct.CollectionTypeSchema {
   collectionName: 'products';
   info: {
     description: '';
-    displayName: 'Product';
+    displayName: 'product';
     pluralName: 'products';
     singularName: 'product';
   };
@@ -665,6 +676,10 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     long_description: Schema.Attribute.RichText;
     price: Schema.Attribute.Decimal;
+    product_variants: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-variant.product-variant'
+    >;
     publishedAt: Schema.Attribute.DateTime;
     sale: Schema.Attribute.Decimal;
     stock: Schema.Attribute.Integer;
@@ -680,7 +695,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
 export interface ApiReviewReview extends Struct.CollectionTypeSchema {
   collectionName: 'reviews';
   info: {
-    displayName: 'Review';
+    displayName: 'review';
     pluralName: 'reviews';
     singularName: 'review';
   };
@@ -708,45 +723,11 @@ export interface ApiReviewReview extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiSettingSetting extends Struct.SingleTypeSchema {
-  collectionName: 'settings';
-  info: {
-    displayName: 'Setting';
-    pluralName: 'settings';
-    singularName: 'setting';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    app_description: Schema.Attribute.Text;
-    app_name: Schema.Attribute.String;
-    base_url: Schema.Attribute.Text;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    currency_ar: Schema.Attribute.String;
-    currency_en: Schema.Attribute.String;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::setting.setting'
-    > &
-      Schema.Attribute.Private;
-    logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    publishedAt: Schema.Attribute.DateTime;
-    token: Schema.Attribute.Text;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiValueValue extends Struct.CollectionTypeSchema {
   collectionName: 'values';
   info: {
     description: '';
-    displayName: 'Value';
+    displayName: 'attribute_values';
     pluralName: 'values';
     singularName: 'value';
   };
@@ -754,8 +735,8 @@ export interface ApiValueValue extends Struct.CollectionTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
-    attributes: Schema.Attribute.Relation<
-      'manyToMany',
+    attribute: Schema.Attribute.Relation<
+      'manyToOne',
       'api::attribute.attribute'
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -765,6 +746,10 @@ export interface ApiValueValue extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::value.value'> &
       Schema.Attribute.Private;
+    product_variants: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::product-variant.product-variant'
+    >;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -777,7 +762,7 @@ export interface ApiVendorVendor extends Struct.CollectionTypeSchema {
   collectionName: 'vendors';
   info: {
     description: '';
-    displayName: 'Vendor';
+    displayName: 'vendor';
     pluralName: 'vendors';
     singularName: 'vendor';
   };
@@ -803,6 +788,7 @@ export interface ApiVendorVendor extends Struct.CollectionTypeSchema {
     phone: Schema.Attribute.String;
     products: Schema.Attribute.Relation<'oneToMany', 'api::product.product'>;
     publishedAt: Schema.Attribute.DateTime;
+    store_name: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -811,7 +797,6 @@ export interface ApiVendorVendor extends Struct.CollectionTypeSchema {
       'plugin::users-permissions.user'
     >;
     user_id: Schema.Attribute.Integer;
-    vendor_name: Schema.Attribute.String;
   };
 }
 
@@ -1273,7 +1258,6 @@ export interface PluginUsersPermissionsUser
   };
   attributes: {
     blocked: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
-    carts: Schema.Attribute.Relation<'oneToMany', 'api::cart.cart'>;
     confirmationToken: Schema.Attribute.String & Schema.Attribute.Private;
     confirmed: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     createdAt: Schema.Attribute.DateTime;
@@ -1304,6 +1288,8 @@ export interface PluginUsersPermissionsUser
       'manyToOne',
       'plugin::users-permissions.role'
     >;
+    type: Schema.Attribute.Enumeration<['user', 'vendor', 'admin']> &
+      Schema.Attribute.DefaultTo<'user'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1329,15 +1315,14 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::address.address': ApiAddressAddress;
       'api::attribute.attribute': ApiAttributeAttribute;
-      'api::cart.cart': ApiCartCart;
       'api::category.category': ApiCategoryCategory;
       'api::customer.customer': ApiCustomerCustomer;
       'api::order.order': ApiOrderOrder;
-      'api::page.page': ApiPagePage;
       'api::payment-option.payment-option': ApiPaymentOptionPaymentOption;
+      'api::product-attribute-value.product-attribute-value': ApiProductAttributeValueProductAttributeValue;
+      'api::product-variant.product-variant': ApiProductVariantProductVariant;
       'api::product.product': ApiProductProduct;
       'api::review.review': ApiReviewReview;
-      'api::setting.setting': ApiSettingSetting;
       'api::value.value': ApiValueValue;
       'api::vendor.vendor': ApiVendorVendor;
       'plugin::content-releases.release': PluginContentReleasesRelease;

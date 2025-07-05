@@ -4,7 +4,7 @@
   "info": {
     "singularName": "attribute",
     "pluralName": "attributes",
-    "displayName": "Attribute",
+    "displayName": "attribute",
     "description": ""
   },
   "options": {
@@ -17,9 +17,9 @@
     },
     "values": {
       "type": "relation",
-      "relation": "manyToMany",
+      "relation": "oneToMany",
       "target": "api::value.value",
-      "mappedBy": "attributes"
+      "mappedBy": "attribute"
     },
     "products": {
       "type": "relation",

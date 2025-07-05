@@ -4,7 +4,7 @@
   "info": {
     "singularName": "vendor",
     "pluralName": "vendors",
-    "displayName": "Vendor",
+    "displayName": "vendor",
     "description": ""
   },
   "options": {
@@ -15,7 +15,7 @@
     "user_id": {
       "type": "integer"
     },
-    "vendor_name": {
+    "store_name": {
       "type": "string"
     },
     "logo": {

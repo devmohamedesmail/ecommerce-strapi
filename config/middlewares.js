@@ -43,7 +43,7 @@ module.exports = [
   {
     name: 'strapi::cors',
     config: {
-      origin: ['https://vendora-website-store.vercel.app'],
+      origin: ['https://vendora-website-store.vercel.app', 'http://localhost:3000'],
       methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
       headers: [
         'Content-Type',
