@@ -522,6 +522,7 @@ export interface ApiOrderOrder extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::order.order'> &
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
+    notes: Schema.Attribute.Text;
     order: Schema.Attribute.JSON;
     order_status: Schema.Attribute.Enumeration<
       ['pending', 'completed', 'processing', 'cancelled', 'returned']

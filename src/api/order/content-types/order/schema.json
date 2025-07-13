@@ -51,6 +51,9 @@
     },
     "full_address": {
       "type": "json"
+    },
+    "notes": {
+      "type": "text"
     }
   }
 }
