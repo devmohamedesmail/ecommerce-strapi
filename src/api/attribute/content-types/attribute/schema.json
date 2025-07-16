@@ -20,6 +20,7 @@
       "relation": "oneToMany",
       "target": "api::value.value",
       "mappedBy": "attribute"
+      
     },
     "products": {
       "type": "relation",
