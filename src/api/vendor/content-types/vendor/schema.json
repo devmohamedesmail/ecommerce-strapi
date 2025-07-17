@@ -71,6 +71,28 @@
       "relation": "oneToMany",
       "target": "api::order.order",
       "mappedBy": "vendor"
+    },
+    "address": {
+      "type": "string"
+    },
+    "licence": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "facebook": {
+      "type": "text"
+    },
+    "tiktok": {
+      "type": "text"
+    },
+    "instagram": {
+      "type": "text"
     }
   }
 }

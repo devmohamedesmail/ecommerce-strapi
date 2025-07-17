@@ -60,7 +60,6 @@
       "relation": "manyToMany",
       "target": "api::attribute.attribute",
       "mappedBy": "products"
-      
     },
     "vendor": {
       "type": "relation",
